@@ -1,0 +1,99 @@
+.header {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  margin-right: 50px;
+  margin-left: 50px;
+  position: relative;
+  text-align: center;
+  background-image: url("/images/Inven.png"); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  max-width:100%;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+.header h1 {
+  color: #fff;
+  text-align: left;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+  text-decoration: none !important;
+  margin-top: 20%;
+}
+
+
+.header a {
+  text-decoration: none !important;
+}
+
+.header_main {
+  flex:1;
+}
+
+.header_sub {
+  flex:1;
+  margin-top: 60%;
+  text-align: left;
+}
+
+.header_space {
+  flex:1;
+}
+
+
+/* Style each slide section */
+.container {
+    display: flex; /* Use flexbox to arrange image and text side by side */
+    align-items: center; /* Center content vertically */
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 35px;
+}
+
+/* Style the image container */
+.slide_img {
+    flex: 1;
+	background-image: url("/images/space_3.jpeg"); 
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.slide_img img {
+    max-width: 100%;
+}
+
+.slide_txt {
+    flex: 2;/* Add some space between image and text */
+	padding: 70px;
+	text-align: center;
+	background-color: white;
+	margin-left: 20px;
+	margin-right: 60px;
+}
+
+
+.header_txt {
+    flex: 1;
+	text-align: left;
+}
+
+.header_img {
+    flex: 1;
+}
+
+.header_img img {
+	text-align: center;
+    max-width: 100%; /* Force the image to scale down to fit its container */
+    height: auto; /* Maintain the image's aspect ratio */
+}

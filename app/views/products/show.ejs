@@ -1,0 +1,58 @@
+<% include ../partials/header %>
+
+<div class="container">
+		<div class="col-md-7">
+			<div class="thumbnail">
+				<img class="img-responsive" src="<%= product.image %>">
+				<div class="caption-ful">
+					<h4 class="pull-right">$<%= product.cost %>.00</h4>
+					<h4><a><%=product.name%></a></h4>
+					    <h5> <%= product.shdescription %></h5>
+					<p><%= product.longdescription %></p>
+					<a class="btn btn-success pull-right" href="#">Buy Now</a>
+					
+					<p>
+					</p>
+					
+					<p>
+						<em>Created By <%= product.author.username %></em>
+					</p>
+					
+					<% if(currentUser && product.author.id.equals(currentUser._id)){ %>
+						<a class="btn btn-warning" href="/products/<%= product._id %>/edit">Edit Entry</a>
+					<form id="delete-form" action="/products/<%= product._id %>?_method=DELETE" method="POST">
+						<button class="btn btn-danger">Delete</button>
+					</form>
+					<% } %>
+				</div>
+			</div>
+			<div class="well">
+				<div class="text-right">
+					<a class="btn btn-success" href="/products/<%= product._id %>/comments/new">Add a New Comment</a>
+			</div>
+				<hr>
+			<% product.comments.forEach(function(comment){ %>
+				<div class="row">
+					<div class="col-md-12">
+						<strong><%= comment.author.username %></strong>
+						<span class="pull-right">19 days ago</span>
+						<p>
+	 					<%= comment.text %>
+						</p>
+					<% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+						<a class="btn btn-xs btn-warning" 
+						   href="/products/<%=product._id%>/comments/<%=comment._id %>/edit">Edit</a>
+							<form id="delete-form" action="/products/<%=product._id %>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+								  <input type="submit" class="btn btn-xs btn-danger" value="Delete">
+					        </form>
+						<% } %>
+					</div>
+				</div>	
+			<% }) %>
+		</div>
+	</div>
+	</div>
+
+	
+
+<% include ../partials/footer %>
